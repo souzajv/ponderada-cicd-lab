@@ -1,8 +1,8 @@
 {
   "execution_mode": "parallel",
-  "pip_cache": true,
+  "pip_cache": false,
   "run_slow_tests": false,
   "force_test_failure": false,
   "force_lint_failure": false,
-  "variation_label": "06-cache-on"
+  "variation_label": "07-cache-off"
 }
