@@ -1,0 +1,65 @@
+name: Run analyzer tests
+description: Instala deps, executa pytest e publica junit + timings.
+
+inputs:
+  pip_cache:
+    required: true
+  run_slow_tests:
+    required: true
+  variation_label:
+    required: true
+  execution_mode:
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Marcar inicio test
+      shell: bash
+      run: |
+        mkdir -p reports
+        echo "{\"test_start\": $(date +%s)}" > reports/step-timings-partial.json
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        cache: ${{ inputs.pip_cache == 'true' && 'pip' || '' }}
+        cache-dependency-path: requirements-dev.txt
+
+    - name: Instalar dependencias
+      shell: bash
+      run: pip install -r requirements-dev.txt
+
+    - name: Executar pytest
+      shell: bash
+      run: |
+        MARKER=""
+        if [ "${{ inputs.run_slow_tests }}" != "true" ]; then
+          MARKER='-m "not slow"'
+        fi
+        eval pytest $MARKER --cov=analyzer --cov-report=xml:reports/coverage.xml --junitxml=reports/junit.xml -v
+
+    - name: Marcar fim test
+      shell: bash
+      run: |
+        python - <<'PY'
+        import json, time
+        from pathlib import Path
+        p = Path("reports/step-timings-partial.json")
+        data = json.loads(p.read_text()) if p.exists() else {}
+        data["test_end"] = time.time()
+        data["test_duration_s"] = round(data["test_end"] - data.get("test_start", data["test_end"]), 3)
+        data["execution_mode"] = "${{ inputs.execution_mode }}"
+        data["variation_label"] = "${{ inputs.variation_label }}"
+        Path("reports/step-timings.json").write_text(json.dumps(data))
+        PY
+
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-reports-${{ github.run_id }}
+        path: |
+          reports/junit.xml
+          reports/coverage.xml
+          reports/step-timings.json
+        if-no-files-found: warn

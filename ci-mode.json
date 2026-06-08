@@ -1,0 +1,8 @@
+{
+  "execution_mode": "parallel",
+  "pip_cache": true,
+  "run_slow_tests": false,
+  "force_test_failure": false,
+  "force_lint_failure": false,
+  "variation_label": "01-baseline-verde"
+}
