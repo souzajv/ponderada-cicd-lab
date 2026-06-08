@@ -1,0 +1,450 @@
+run_id,commit_sha,status,variation_label,job_name,step_name,step_number,step_conclusion,step_duration,timestamp
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Set up job,1,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Resolver modo do experimento,4,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Complete job,9,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Set up job,1,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Instalar e testar,5,success,5.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,test_parallel,Complete job,13,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Set up job,1,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Instalar dependencias,5,success,4.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Ruff lint,6,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Lint probe,7,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Post Run actions/setup-python@v5,13,success,1.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,lint,Complete job,15,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,report,Set up job,1,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,report,Status consolidado,2,success,0.0,2026-06-08T02:27:46Z
+27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,report,Complete job,3,success,0.0,2026-06-08T02:27:46Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,setup,Set up job,1,success,1.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,setup,Complete job,9,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Set up job,1,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Instalar dependencias,5,success,5.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Ruff lint,6,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Lint probe,7,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,lint,Complete job,15,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Set up job,1,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Instalar e testar,5,success,7.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,test_parallel,Complete job,13,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,report,Set up job,1,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,report,Status consolidado,2,success,0.0,2026-06-08T02:27:38Z
+27112605638,e97af59870da3f408e544d9d121f7ba80e418e80,success,12-artefato-grande,report,Complete job,3,success,0.0,2026-06-08T02:27:38Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,setup,Set up job,1,success,1.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,setup,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,setup,Complete job,9,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Set up job,1,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Instalar dependencias,5,success,4.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Ruff lint,6,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Lint probe,7,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Post Run actions/checkout@v4,14,success,1.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,lint,Complete job,15,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Set up job,1,success,1.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Instalar e testar,5,success,6.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Run actions/upload-artifact@v4,6,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,test_sequential,Complete job,13,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,report,Set up job,1,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,report,Status consolidado,2,success,0.0,2026-06-08T02:23:30Z
+27112496923,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-sequential,report,Complete job,3,success,0.0,2026-06-08T02:23:30Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,setup,Set up job,1,success,1.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,setup,Resolver modo do experimento,4,success,1.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,setup,Complete job,9,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Set up job,1,success,1.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Instalar e testar,5,success,6.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Run actions/upload-artifact@v4,6,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Post Run actions/checkout@v4,12,success,1.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,test_parallel,Complete job,13,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Set up job,1,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Instalar dependencias,5,success,5.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Ruff lint,6,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Lint probe,7,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,lint,Complete job,15,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,report,Set up job,1,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,report,Status consolidado,2,success,0.0,2026-06-08T02:23:29Z
+27112496051,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,dispatch-parallel,report,Complete job,3,success,0.0,2026-06-08T02:23:29Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,setup,Set up job,1,success,1.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,setup,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,setup,Complete job,9,success,1.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Set up job,1,success,1.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Instalar e testar,5,success,8.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,test_parallel,Complete job,13,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Set up job,1,success,1.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Instalar dependencias,5,success,5.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Ruff lint,6,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Lint probe,7,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,lint,Complete job,15,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,report,Set up job,1,success,0.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,report,Status consolidado,2,success,1.0,2026-06-08T02:23:26Z
+27112494596,c3a3af5b23f4d4798647a8e840d116d570ee4e49,success,12-artefato-grande,report,Complete job,3,success,0.0,2026-06-08T02:23:26Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,setup,Set up job,1,success,1.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,setup,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,setup,Post Run actions/checkout@v4,8,success,1.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,setup,Complete job,9,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Set up job,1,success,1.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Instalar dependencias,5,success,5.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Ruff lint,6,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Lint probe,7,failure,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,lint,Complete job,15,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,report,Set up job,1,success,1.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,report,Status consolidado,2,success,0.0,2026-06-08T02:23:20Z
+27112491871,80fbf6a58c12296d00037656d8a4d0a3a98e6975,failure,11-inferido,report,Complete job,3,success,0.0,2026-06-08T02:23:20Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,setup,Set up job,1,success,1.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,setup,Resolver modo do experimento,4,success,1.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,setup,Complete job,9,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Set up job,1,success,1.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Run actions/setup-python@v5,3,success,4.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Instalar e testar,5,success,7.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,test_inverted,Complete job,13,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Set up job,1,success,1.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Instalar dependencias,5,success,7.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Ruff lint apos testes,6,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Lint probe,7,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,lint_inverted,Complete job,15,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,report,Set up job,1,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,report,Status consolidado,2,success,0.0,2026-06-08T02:23:15Z
+27112489037,8cfd2f84b62e3e0bdeab8bcb639eb72a11f58825,success,10-ordem-invertida,report,Complete job,3,success,0.0,2026-06-08T02:23:15Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,setup,Set up job,1,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,setup,Post Run actions/setup-python@v5,7,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,setup,Complete job,9,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Set up job,1,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Instalar dependencias,5,success,5.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Ruff lint,6,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Lint probe,7,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,lint,Complete job,15,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Set up job,1,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Instalar e testar,5,success,5.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,test_sequential,Complete job,13,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,report,Set up job,1,success,0.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,report,Status consolidado,2,success,1.0,2026-06-08T02:23:09Z
+27112486298,ec55d586609fda6635959c85c0604f824f4658f6,success,09-sequencial,report,Complete job,3,success,0.0,2026-06-08T02:23:09Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,setup,Set up job,1,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,setup,Resolver modo do experimento,4,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,setup,Complete job,9,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Set up job,1,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Instalar e testar,5,success,5.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,test_parallel,Complete job,13,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Set up job,1,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Instalar dependencias,5,success,4.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Ruff lint,6,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Lint probe,7,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Post Run actions/checkout@v4,14,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,lint,Complete job,15,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,report,Set up job,1,success,1.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,report,Status consolidado,2,success,0.0,2026-06-08T02:23:04Z
+27112483564,89ae72a2af61dd4a3aee1eb5f8ada9c6e7000ff2,success,08-paralelo,report,Complete job,3,success,0.0,2026-06-08T02:23:04Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,setup,Set up job,1,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,setup,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,setup,Complete job,9,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Set up job,1,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Run actions/setup-python@v5,4,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Instalar dependencias,5,success,8.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Ruff lint,6,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Lint probe,7,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Post Run actions/checkout@v4,14,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,lint,Complete job,15,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Set up job,1,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Run actions/setup-python@v5,4,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Instalar e testar,5,success,10.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,test_parallel,Complete job,13,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,report,Set up job,1,success,1.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,report,Status consolidado,2,success,0.0,2026-06-08T02:22:59Z
+27112480695,5f5e0aacbf7f512635216b51dc31cd77059dded7,success,07-cache-off,report,Complete job,3,success,0.0,2026-06-08T02:22:59Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,setup,Set up job,1,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,setup,Post Run actions/checkout@v4,8,success,1.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,setup,Complete job,9,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Set up job,1,success,1.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Instalar dependencias,5,success,6.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Ruff lint,6,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Lint probe,7,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,lint,Complete job,15,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Set up job,1,success,1.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Instalar e testar,5,success,7.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,test_parallel,Complete job,13,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,report,Set up job,1,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,report,Status consolidado,2,success,0.0,2026-06-08T02:22:52Z
+27112477570,1a7696f6bc978bc62334a62b1f674e6fdc3b5c66,success,06-cache-on,report,Complete job,3,success,0.0,2026-06-08T02:22:52Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,setup,Set up job,1,success,1.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,setup,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,setup,Complete job,9,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Set up job,1,success,1.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Instalar e testar,5,success,8.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,test_parallel,Complete job,13,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Set up job,1,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Instalar dependencias,5,success,6.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Ruff lint,6,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Lint probe,7,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Post Run actions/checkout@v4,14,success,1.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,lint,Complete job,15,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,report,Set up job,1,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,report,Status consolidado,2,success,0.0,2026-06-08T02:22:46Z
+27112474712,20bc662146c845a4c5d86855ec804bc9739086ea,success,05-teste-lento,report,Complete job,3,success,0.0,2026-06-08T02:22:46Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,setup,Set up job,1,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,setup,Complete job,9,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Set up job,1,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Instalar dependencias,5,success,6.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Ruff lint,6,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Lint probe,7,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Post Run actions/checkout@v4,14,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,lint,Complete job,15,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Set up job,1,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Run actions/setup-python@v5,3,success,4.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Instalar e testar,5,success,7.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Post Run actions/setup-python@v5,11,success,1.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,test_parallel,Complete job,13,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,report,Set up job,1,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,report,Status consolidado,2,success,0.0,2026-06-08T02:22:41Z
+27112472129,3eec61b405e5940e672c276cdb8e2f9c3a26fb40,success,04-mais-testes,report,Complete job,3,success,0.0,2026-06-08T02:22:41Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,setup,Set up job,1,success,1.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,setup,Complete job,9,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Set up job,1,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Instalar dependencias,5,success,5.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Ruff lint,6,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Lint probe,7,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,lint,Complete job,15,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Set up job,1,success,2.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Run actions/setup-python@v5,3,success,4.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Instalar e testar,5,success,6.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,test_parallel,Complete job,13,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,report,Set up job,1,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,report,Status consolidado,2,success,0.0,2026-06-08T02:22:36Z
+27112469375,ecf658fb97ecf3ea2f1f73f8847d770970ce9626,success,03-correcao-teste,report,Complete job,3,success,0.0,2026-06-08T02:22:36Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,setup,Set up job,1,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,setup,Complete job,9,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Set up job,1,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Run actions/setup-python@v5,3,success,3.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Instalar dependencias,5,success,6.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Ruff lint,6,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Lint probe,7,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,lint,Complete job,15,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,test_parallel,Set up job,1,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,test_parallel,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,test_parallel,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,test_parallel,Instalar e testar,5,failure,7.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,test_parallel,Complete job,13,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,report,Set up job,1,success,0.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,report,Status consolidado,2,success,1.0,2026-06-08T02:22:30Z
+27112466672,f724b9d447c39739844f6d60c30ed87fa530a99b,failure,02-inferido,report,Complete job,3,success,0.0,2026-06-08T02:22:30Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,setup,Set up job,1,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,setup,Post Run actions/setup-python@v5,7,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,setup,Complete job,9,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Set up job,1,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Instalar e testar,5,success,6.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Run actions/upload-artifact@v4,6,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Post Run actions/setup-python@v5,11,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,test_parallel,Complete job,13,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Set up job,1,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Instalar dependencias,5,success,4.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Ruff lint,6,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Lint probe,7,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Post Run actions/checkout@v4,14,success,1.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,lint,Complete job,15,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,report,Set up job,1,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,report,Status consolidado,2,success,0.0,2026-06-08T02:22:25Z
+27112464101,e3e3c8a67b08e25c07b85beac76c650765cd3f13,success,01-baseline-verde,report,Complete job,3,success,0.0,2026-06-08T02:22:25Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,setup,Set up job,1,success,1.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,setup,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,setup,Resolver modo do experimento,4,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,setup,Complete job,9,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Set up job,1,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Instalar dependencias,5,success,6.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Ruff lint,6,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Lint probe,7,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Post Run actions/checkout@v4,14,success,1.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,lint,Complete job,15,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Set up job,1,success,1.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Instalar e testar,5,success,6.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Run actions/upload-artifact@v4,6,success,1.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Post Run actions/setup-python@v5,11,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Post Run actions/checkout@v4,12,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,test_parallel,Complete job,13,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,report,Set up job,1,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,report,Status consolidado,2,success,0.0,2026-06-08T02:21:34Z
+27112440596,846b08a143d07319452b2060123d9c1ae7456979,success,12-artefato-grande,report,Complete job,3,success,0.0,2026-06-08T02:21:34Z

@@ -63,7 +63,11 @@ Saídas:
 
 ```bash
 python gerar_graficos_pipeline.py
+python gerar_evidencias.py
 ```
+
+O CSV limpo (`pipeline_metricas_limpo.csv`) exclui runs inválidos (0s) e jobs
+`skipped`. Steps ficam em `pipeline_steps.csv`.
 
 PNG em `entregaveis/graficos/`.
 

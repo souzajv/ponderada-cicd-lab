@@ -1,5 +1,7 @@
 # ponderada-cicd-lab
 
+![CI Pipeline Metrics Experiment](https://github.com/souzajv/ponderada-cicd-lab/actions/workflows/ci.yml/badge.svg)
+
 Experimento de **métricas de pipeline CI/CD** com GitHub Actions, inspirado no
 Analyzer Service do projeto G01 (Jacto Drones OS).
 

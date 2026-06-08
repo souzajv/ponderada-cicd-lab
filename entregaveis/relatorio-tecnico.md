@@ -4,206 +4,190 @@
 **Autor:** João Victor Souza (souzajv)  
 **Data do experimento:** 2026-06-08  
 **Repositório:** https://github.com/souzajv/ponderada-cicd-lab  
-**Workflow:** https://github.com/souzajv/ponderada-cicd-lab/blob/main/.github/workflows/ci.yml
+**Workflow:** https://github.com/souzajv/ponderada-cicd-lab/blob/main/.github/workflows/ci.yml  
+**Folha de entrega:** [ENTREGA.md](./ENTREGA.md)
 
 ---
 
 ## 1. Objetivo
 
-Construir um experimento prático para medir e analisar o comportamento de um pipeline
-CI/CD real no **GitHub Actions**, coletando métricas via script Python (API REST),
-gerando gráficos e produzindo análise crítica sobre desempenho, estabilidade e gargalos.
+Medir e analisar o comportamento de um pipeline CI/CD real no **GitHub Actions**,
+coletando métricas via script Python (API REST), gerando gráficos e produzindo
+análise crítica sobre desempenho, estabilidade e gargalos — com conexão ao
+**Analyzer Service** do projeto Kombi (g01).
 
-Diferente da abordagem de telemetria de voo (simulador PX4), este experimento foca
-**exclusivamente no processo de integração contínua**.
-
-## 2. Arquitetura do pipeline
+## 2. Arquitetura do pipeline (atualizada)
 
 ```
 push / workflow_dispatch
         │
         ▼
     ┌────────┐
-    │ setup  │  lê ci-mode.json → execution_mode, cache, flags de falha
+    │ setup  │  lê ci-mode.json
     └────┬───┘
          │
-    ┌────┴────────────────────────────────────┐
-    │                                         │
- parallel / sequential / inverted             │
-    │                                         │
-    ▼                                         ▼
- lint ──► test_sequential          test_inverted ──► lint_inverted
-    │         (modo sequencial)         (ordem invertida)
-    │
-    └──► test_parallel (modo paralelo, sem needs em lint)
-         │
-         ▼
-    artefato pipeline-metrics-{run_id}
-    (junit.xml + run-metrics.json)
-         │
-         ▼
- coletar_metricas_pipeline.py → CSV/JSON → gerar_graficos_pipeline.py
+    ┌────┴──────────────────────────────────────────┐
+    │ parallel │ sequential │ inverted              │
+    ▼              ▼                ▼                 │
+ lint ──► test_sequential    test_inverted ──► lint_inverted
+    │                                                 │
+    └──► test_parallel                                │
+         │                                            │
+         ▼                                            │
+ artefato pipeline-metrics-{run_id}                   │
+         │                                            │
+         ▼                                            │
+    ┌─────────┐                                       │
+    │ report  │  download artifacts + extra-report    │
+    └────┬────┘                                       │
+         ▼                                            │
+ pipeline-report-{run_id}                              │
+         │                                            │
+         ▼                                            │
+ coletar_metricas_pipeline.py ──► CSV/JSON/steps      │
+         ▼                                            │
+ gerar_graficos_pipeline.py + gerar_evidencias.py     │
 ```
 
-## 3. Metodologia
+## 3. Metodologia e bases de dados
 
-1. **Projeto base:** mini-analyzer Python com pytest + ruff (tema alinhado ao módulo G01).
-2. **Pipeline:** jobs `setup`, `lint`, `test_*`, `report` com instrumentação de artefatos.
-3. **14 execuções reais** documentadas em [`experimento/VARIACOES.md`](../experimento/VARIACOES.md).
-4. **Coleta automatizada:** [`coletar_metricas_pipeline.py`](./coletar_metricas_pipeline.py) consulta a API do GitHub (`gh auth token`).
-5. **Visualização:** 4 gráficos PNG em [`graficos/`](./graficos/).
+| Artefato | Descrição |
+|---|---|
+| `pipeline_metricas.csv` | Todos os jobs coletados (com ruído de runs inválidos) |
+| `pipeline_metricas_limpo.csv` | **17 runs válidos**, jobs sem `skipped`, duração ≥ 5s |
+| `pipeline_steps.csv` | **449 steps** com duração por etapa (API `jobs[].steps`) |
+| `dados/raw/run-*.json` | Cache bruto da API para auditoria |
+
+Coleta: [`coletar_metricas_pipeline.py`](./coletar_metricas_pipeline.py) com token `gh auth token`.
 
 ### Evidências (links reais)
 
+Tabela completa: [experimento/VARIACOES.md](../experimento/VARIACOES.md)
+
 | Variação | run_id | Link |
 |---|---|---|
-| Baseline verde | 27112464101 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112464101 |
-| Teste falhando | 27112466672 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112466672 |
-| Jobs paralelos | 27112483564 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112483564 |
-| Jobs sequenciais | 27112486298 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112486298 |
-| Cache off | 27112480695 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112480695 |
-| Teste lento | 27112474712 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112474712 |
+| 01 baseline | 27112464101 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112464101 |
+| 02 teste falhando | 27112466672 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112466672 |
+| 08 paralelo | 27112483564 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112483564 |
+| 09 sequencial | 27112486298 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112486298 |
+| 11 falha lint | 27112491871 | https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112491871 |
 
-Base de dados: [`dados/pipeline_metricas.csv`](./dados/pipeline_metricas.csv) (95 linhas, 20 runs).
+### Evidências visuais
 
----
+Painéis gerados a partir dos dados da API (complementam os links acima):
+
+![Tabela de runs reais](./evidencias/01_tabela_runs_reais.png)
+
+![Paralelo vs sequencial](./evidencias/02_paralelo_vs_sequencial.png)
+
+![Runs com falha](./evidencias/03_runs_com_falha.png)
+
+![Schema de métricas](./evidencias/04_schema_metricas_api.png)
 
 ## 4. Respostas às perguntas de análise
 
 ### 4.1 Qual etapa mais contribuiu para o tempo total do pipeline?
 
-Nos runs em modo **paralelo** (ex.: run `27112464101`), os jobs `lint` (~12s) e
-`test_parallel` (~12s) dominam o tempo; o `workflow_duration` (~22s) ≈ `max(lint, test)`
-+ overhead do `setup` (~4s).
+Análise por **steps** (`pipeline_steps.csv`, média nos runs válidos):
 
-No modo **sequencial** (run `27112486298`), `workflow_duration` = **34s** ≈ `setup` (4s)
-+ `lint` (9s) + `test_sequential` (13s).
+| Step | Duração média (s) |
+|---|---|
+| Instalar e testar (pytest) | 6,63 |
+| Instalar dependencias (pip) | 5,35 |
+| setup-python | 1,48 |
+| upload-artifact | 0,81 |
 
-No modo **invertido** (run `27112489037`), o tempo subiu para **45s** porque `test_inverted`
-(16s) e `lint_inverted` (13s) executam em série após o setup.
+Em modo **paralelo** (run `27112483564`), `workflow_duration` ≈ **22s** ≈ `max(lint, test)` + setup.
+Em modo **sequencial** (run `27112486298`), **34s** ≈ lint + test em série.
 
-**Conclusão:** a etapa de **testes** e a de **instalação+lint** são os maiores
-contribuintes; em paralelo, quem manda é o job mais lento entre os dois.
+**Conclusão:** instalação de dependências + execução de testes dominam; em paralelo o gargalo é o job mais lento entre lint e test.
 
 ### 4.2 Houve diferença significativa entre execuções com e sem cache?
 
-Comparando runs consecutivos:
+Dataset limpo (média de `workflow_duration`):
 
-| Variação | pip_cache | workflow_duration | lint | test_parallel |
-|---|---|---|---|---|
-| 06-cache-on | true | 24s | 14s | 14s |
-| 07-cache-off | false | 26s | 15s | 17s |
+| Modo | Média (s) |
+|---|---|
+| cache ON (`pip_cache=true`) | 28,3 |
+| cache OFF | 26,0 |
 
-Diferença observada: **~2s no total** (~8%), bem abaixo da hipótese inicial de 20%
-([`experimento/hipoteses.md`](../experimento/hipoteses.md)). O projeto é pequeno e o
-`pip install` é rápido mesmo sem cache; o ganho do cache pip fica diluído no tempo
-de checkout e setup do runner.
+Diferença **não significativa** neste experimento; em um run isolado (06 vs 07) a diferença foi ~2s (~8%). O projeto é pequeno e o ganho do cache pip fica diluído no checkout/setup.
 
 ### 4.3 O paralelismo reduziu o tempo total? Em que condições?
 
 | Modo | run_id | workflow_duration |
 |---|---|---|
-| parallel | 27112483564 | **22s** |
-| sequential | 27112486298 | **34s** |
-| inverted | 27112489037 | **45s** |
+| parallel (08) | 27112483564 | **22s** |
+| sequential (09) | 27112486298 | **34s** |
+| inverted (10) | 27112489037 | **45s** |
 
-O paralelismo reduziu ~**35%** em relação ao sequencial, confirmando H2. Porém, quando
-o teste lento está habilitado (run `27112474712`, 27s), o job `test_parallel` passa a
-ser o gargalo e o ganho do paralelismo entre lint e test fica menos perceptível no
-tempo total.
+Paralelismo reduziu ~**35%** vs sequencial. Com teste lento (var. 05, 27s), o job de teste vira gargalo e o ganho fica menos perceptível.
 
 ### 4.4 Quais falhas foram mais frequentes?
 
-Das 20 runs coletadas (incluindo tentativas inválidas):
+Nos **17 runs válidos** do dataset limpo:
 
-- **failure:** 14 runs (12 inválidos de YAML + 2 variações intencionais)
-- **success:** 6 runs válidos na primeira leva + 14 na segunda ≈ **86% de sucesso**
-  nas execuções funcionais
+- **success:** 15 (88,2%)
+- **failure:** 2 (11,8%) — variações intencionais 02 (teste) e 11 (lint)
 
-Falhas intencionais e esperadas:
+Falhas por tipo: 1× teste (`test_failures=1`), 1× lint (job `lint` falhou em ~11s).
 
-1. **Teste** (variação 02, run `27112466672`): `test_failures=1`, `status=failure`
-2. **Lint** (variação 11, run `27112491871`): job `lint` falhou em 11s antes dos testes
-   sequenciais
+### 4.5 O pipeline fornece feedback rápido o suficiente?
 
-### 4.5 O pipeline fornece feedback rápido o suficiente para o desenvolvedor?
+Runs verdes: **22–34s** (paralelo vs sequencial). Falha de lint (var. 11): feedback em ~16s (setup + lint), antes de gastar tempo em testes — fail-fast adequado.
 
-Runs verdes ficaram entre **22s e 34s** (paralelo vs sequencial). Para um projeto
-acadêmico pequeno, isso é aceitável. Em modo sequencial com lint falhando (var. 11),
-o feedback de lint chega em **~16s** (setup + lint), antes de gastar tempo em testes —
-comportamento desejável para fail-fast.
+### 4.6 Que melhorias poderiam ser feitas?
 
-### 4.6 Que melhorias poderiam ser feitas no pipeline?
+1. Unificar jobs `test_*` em um único job parametrizado (menos ruído na API).
+2. Cache de `.pytest_cache` para suítes maiores.
+3. Publicar `run-metrics.json` no lint **sempre** (`if: always()`) — implementado na versão final do workflow.
+4. Job `report` consolidado com `extra-report.json` — implementado.
+5. Habilitar `app:test` no GitLab do g01 com base nas conclusões deste experimento.
 
-1. **Unificar jobs de teste** em um único job parametrizado (menos ruído na API de jobs).
-2. **Cache de `.pytest_cache`** além do pip, para suítes maiores.
-3. **Fail-fast global:** em modo sequencial, não agendar `test` se `lint` falhar (hoje
-   `test_sequential` ainda aparece como skipped/failure na API).
-4. **Publicar `run-metrics.json` sempre**, inclusive em falhas de lint (hoje var. 11 não
-   gerou `variation_label` no artefato).
-5. **Matrix strategy** para Python 3.11/3.12 se o analyzer crescer.
+### 4.7 Limitações dos dados
 
-### 4.7 Quais limitações existem nos dados coletados?
+- Runs inválidos iniciais (YAML 0s) existem no CSV completo; análise usa CSV limpo.
+- Jobs `skipped` poluíam versões anteriores — filtrados em `pipeline_metricas_limpo.csv`.
+- Variância de runners compartilhados (`ubuntu-latest`).
+- Artefatos expiram em 90 dias; CSV commitado no repositório.
 
-- Granularidade de **step** dentro do job não foi exportada com precisão (só duração de job).
-- Jobs **skipped** aparecem na API com duração 0s ou -1s, poluindo o CSV.
-- Artefatos expiram em 90 dias; a coleta local foi feita no mesmo dia.
-- Runners `ubuntu-latest` compartilhados introduzem variância (ex.: cache on 24s vs off 26s).
-- As 12 primeiras execuções inválidas (0s) entraram na base e precisam ser filtradas
-  em análises futuras (`workflow_duration = 0`).
+### 4.8 Como apoiar decisões de engenharia?
 
-### 4.8 Como essa análise poderia apoiar decisões de engenharia?
+- Manter lint+test em **paralelo** no g01 quando `app:test` for habilitado (~12s economizados).
+- Cache pip: ROI baixo neste porte; reavaliar quando dependências crescerem.
+- Evitar ordem invertida (test antes de lint): +11s sem ganho de qualidade.
+- Métricas coletadas permitem definir SLO de pipeline (ex.: p95 < 40s).
 
-- **Manter lint e test em paralelo** neste projeto: economia de ~12s por push.
-- **Investir em cache** só compensa quando dependências ou build crescerem; hoje o ROI é baixo.
-- **Ordem invertida (test antes de lint)** não se justifica: aumenta latência sem ganho
-  de qualidade no nosso fluxo.
-- **Métricas DORA:** com lead time de ~25s (commit → pipeline verde em modo paralelo),
-  o time tem feedback rápido para corrigir falhas (var. 02 → 03 em um push).
+## 5. Métricas de processo (DORA)
 
----
+| Métrica DORA | Medição no experimento | Valor observado |
+|---|---|---|
+| Lead Time for Changes | `lead_time_s` (commit → conclusão) | média ~30s nos runs válidos |
+| Deployment Frequency | pushes no experimento | 14 variações em ~5 min |
+| Change Failure Rate | failures / runs válidos | 2/17 ≈ **11,8%** |
+| Time to Restore (proxy) | var. 02 → 03 (um push) | ~30s até pipeline verde |
 
-## 5. Resultados inesperados
+## 6. Resultados inesperados
 
-### Inesperado 1 — Primeira leva com 0s e zero jobs
+1. **12 runs iniciais com 0s** por erro de YAML (composite action) — corrigido em `846b08a`.
+2. **Cache pip sem ganho claro** — hipótese de 20% rejeitada; média global até ligeiramente maior com cache (variância de runner).
+3. **Modo invertido mais lento** que sequencial padrão (45s vs 34s) — lint só após test terminar, sem sobreposição.
 
-As 12 execuções iniciais (runs `27112372624` … `27112402416`) falharam instantaneamente
-sem executar nenhum job. Causa: **composite action local** referenciada de forma inválida
-no YAML original. Após simplificar o workflow (commit `846b08a`), todas as variações
-passaram a executar normalmente.
-
-**Lição:** validar o workflow com `gh workflow view` e uma execução canário antes da
-bateria de experimentos.
-
-### Inesperado 2 — Cache pip quase não impactou
-
-A hipótese H1 previa ≥20% de redução; medimos ~8%. O motivo provável é o tamanho reduzido
-de `requirements-dev.txt` e a velocidade dos runners GitHub para `pip install` de poucos
-pacotes.
-
-### Inesperado 3 — Modo invertido mais lento que sequencial padrão
-
-Esperava-se que inverter lint/test não piorasse tanto; observamos **45s** vs **34s** porque
-ambos os jobs pesados rodam em série e o lint invertido só inicia após o test terminar,
-sem sobreposição.
-
----
-
-## 6. Hipótese inicial vs resultado observado
+## 7. Hipótese inicial vs observado
 
 | Hipótese | Previsto | Observado | Veredito |
 |---|---|---|---|
-| H1 Cache reduz ≥20% | lint+test muito mais rápidos | ~8% (2s) | **Rejeitada** no contexto atual |
-| H2 Paralelo ≈ max(lint,test) | ~22s | 22s (run 08) | **Confirmada** |
-| H3 Mais testes = linear | aumento proporcional | 22 testes, ~12s | **Parcial** (suite ainda pequena) |
-| H4 Teste lento domina | test >> lint | test 15s vs lint 13s (run 05) | **Parcial** |
-| H5 Lint falha antes do test (sequencial) | fail-fast | lint falhou, test não rodou (run 11) | **Confirmada** |
+| H1 Cache ≥20% | lint+test muito mais rápidos | ~8% em par isolado; média global inconclusiva | Rejeitada |
+| H2 Paralelo ≈ max(lint,test) | ~22s | 22s (run 08) | Confirmada |
+| H3 Mais testes = linear | aumento proporcional | 22→23 testes, +3s com slow | Parcial |
+| H4 Teste lento domina | test >> lint | test 15s vs lint 13s | Parcial |
+| H5 Lint fail-fast | lint antes de test (sequencial) | var. 11: lint falhou, test não rodou | Confirmada |
 
----
+## 8. Gráficos
 
-## 7. Gráficos gerados
+### Obrigatórios (dataset limpo)
 
-![Tempo total por execução](./graficos/01_tempo_total_por_execucao.png)
+![Tempo total](./graficos/01_tempo_total_por_execucao.png)
 
 ![Tempo por job](./graficos/02_tempo_por_job.png)
 
@@ -211,21 +195,23 @@ sem sobreposição.
 
 ![Testes vs duração](./graficos/04_testes_vs_duracao.png)
 
----
+### Extras (excelência)
 
-## 8. Comparação com entrega de referência (colega — G01)
+![Cache ON vs OFF](./graficos/05_cache_on_vs_off.png)
 
-| Aspecto | Colega (`feat/ponderada-metricas`) | Esta entrega |
-|---|---|---|
-| Objeto | Telemetria de voo (NDJSON) | Métricas de pipeline CI/CD |
-| Plataforma | GitLab CI | GitHub Actions |
-| Coleta | Parse de arquivo local | API GitHub + artefatos |
-| Gráficos | Altitude, bateria, atitude | Tempo, jobs, sucesso, testes×duração |
+![Lead time](./graficos/06_lead_time_por_run.png)
 
-Abordagens distintas, sem sobreposição de domínio ou código de entrega.
+![Steps breakdown](./graficos/07_steps_breakdown.png)
 
----
+## 9. Recomendação para o pipeline G01 (GitLab)
 
-## 9. Reprodução
+Com base nas evidências quantitativas:
+
+1. Descomentar `app:test` em [`.gitlab/app.yml`](https://git.inteli.edu.br/graduacao/2026-1b/t13/g01/-/blob/develop/.gitlab/app.yml).
+2. Executar `app:lint` e `app:test` em **paralelo** no stage `app_quality`.
+3. Habilitar cache npm/pip — ganho marginal hoje, útil quando a suíte Jest (~2800 linhas) rodar no CI.
+4. Replicar padrão de artefato JUnit + script de coleta (como `ci-build-report.js` já existente no g01).
+
+## 10. Reprodução
 
 Passo a passo em [`reproducao.md`](./reproducao.md).

@@ -13,6 +13,8 @@ Experimento individual de métricas de processo com **GitHub Actions**.
 | 5 | Gráficos | [`graficos/`](./graficos/) |
 | 6 | Relatório técnico | [`relatorio-tecnico.md`](./relatorio-tecnico.md) |
 | 7 | Reprodução | [`reproducao.md`](./reproducao.md) |
+| — | Folha de entrega | [`ENTREGA.md`](./ENTREGA.md) |
+| — | Evidências visuais | [`evidencias/`](./evidencias/) |
 
 ## Reproduzir coleta e gráficos
 
