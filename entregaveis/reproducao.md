@@ -1,5 +1,7 @@
 # Como reproduzir o experimento
 
+Índice geral e mapa de entregáveis: [README principal](../README.md)
+
 ## Pré-requisitos
 
 - Conta GitHub com Actions habilitado
@@ -55,7 +57,9 @@ python coletar_metricas_pipeline.py --repo souzajv/ponderada-cicd-lab --limit 20
 
 Saídas:
 
-- `entregaveis/dados/pipeline_metricas.csv`
+- `entregaveis/dados/pipeline_metricas_limpo.csv` (base principal de análise)
+- `entregaveis/dados/pipeline_steps.csv` (duração por step)
+- `entregaveis/dados/pipeline_metricas.csv` (dataset completo / auditoria)
 - `entregaveis/dados/pipeline_metricas.json`
 - `entregaveis/dados/raw/run-*.json` (cache bruto da API)
 
@@ -71,7 +75,14 @@ O CSV limpo (`pipeline_metricas_limpo.csv`) exclui runs inválidos (0s) e jobs
 
 PNG em `entregaveis/graficos/`.
 
-## 6. Evidências no GitHub
+## 6. Evidências visuais
+
+O enunciado aceita **prints ou links**. Esta entrega usa **ambos**:
+
+1. **Links reais** — cada run em [`experimento/VARIACOES.md`](../experimento/VARIACOES.md) aponta para a execução no GitHub Actions.
+2. **Painéis gerados** — `gerar_evidencias.py` monta imagens em `entregaveis/evidencias/` a partir dos dados coletados pela API (run_id, status, duração, jobs). Não são capturas manuais de tela; são evidências estruturadas reproduzíveis.
+
+## 7. Evidências no GitHub
 
 Lista de execuções:
 
