@@ -12,11 +12,11 @@ on:
         required: false
         default: "parallel"
       pip_cache:
-        description: "Habilitar cache pip"
+        description: "Habilitar cache pip (true/false)"
         required: false
         default: "true"
       run_slow_tests:
-        description: "Executar testes @slow"
+        description: "Executar testes slow (true/false)"
         required: false
         default: "false"
 
@@ -40,6 +40,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
       - name: Resolver modo do experimento
         id: mode
         env:
@@ -47,23 +51,19 @@ jobs:
           DISPATCH_CACHE: ${{ github.event.inputs.pip_cache }}
           DISPATCH_SLOW: ${{ github.event.inputs.run_slow_tests }}
         run: |
-          python scripts/read_ci_mode.py > mode.json
-          if [ -n "$DISPATCH_MODE" ]; then
-            python - <<'PY'
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python -c "
           import json, os
           from pathlib import Path
-          mode = json.loads(Path("ci-mode.json").read_text())
-          if os.environ.get("DISPATCH_MODE"):
-              mode["execution_mode"] = os.environ["DISPATCH_MODE"]
-          if os.environ.get("DISPATCH_CACHE"):
-              mode["pip_cache"] = os.environ["DISPATCH_CACHE"].lower() == "true"
-          if os.environ.get("DISPATCH_SLOW"):
-              mode["run_slow_tests"] = os.environ["DISPATCH_SLOW"].lower() == "true"
-          mode["variation_label"] = "dispatch-" + mode["execution_mode"]
-          Path("ci-mode.json").write_text(json.dumps(mode, indent=2) + "\n")
-          PY
-            python scripts/read_ci_mode.py
+          mode = json.loads(Path('ci-mode.json').read_text())
+          mode['execution_mode'] = os.environ.get('DISPATCH_MODE', mode['execution_mode'])
+          mode['pip_cache'] = os.environ.get('DISPATCH_CACHE', 'true').lower() == 'true'
+          mode['run_slow_tests'] = os.environ.get('DISPATCH_SLOW', 'false').lower() == 'true'
+          mode['variation_label'] = 'dispatch-' + mode['execution_mode']
+          Path('ci-mode.json').write_text(json.dumps(mode, indent=2) + '\n')
+          "
           fi
+          python scripts/read_ci_mode.py
 
   lint:
     runs-on: ubuntu-latest
@@ -72,14 +72,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Marcar inicio lint
-        run: echo "{\"lint_start\": $(date +%s)}" > reports/step-timings-partial.json
-
       - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache == 'true'
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-          cache: ${{ needs.setup.outputs.pip_cache == 'true' && 'pip' || '' }}
+          cache: pip
           cache-dependency-path: requirements-dev.txt
+
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache != 'true'
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Instalar dependencias
         run: pip install -r requirements-dev.txt
@@ -87,28 +90,8 @@ jobs:
       - name: Ruff lint
         run: ruff check src tests
 
-      - name: Lint probe (variacao controlada)
+      - name: Lint probe
         run: python scripts/lint_probe.py
-
-      - name: Marcar fim lint
-        run: |
-          mkdir -p reports
-          python - <<'PY'
-          import json, time
-          from pathlib import Path
-          p = Path("reports/step-timings-partial.json")
-          data = json.loads(p.read_text()) if p.exists() else {}
-          data["lint_end"] = time.time()
-          data["lint_duration_s"] = round(data["lint_end"] - data.get("lint_start", data["lint_end"]), 3)
-          Path("reports/step-timings.json").write_text(json.dumps(data))
-          PY
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: lint-timings-${{ github.run_id }}
-          path: reports/step-timings.json
-          if-no-files-found: ignore
 
   test_parallel:
     runs-on: ubuntu-latest
@@ -116,13 +99,38 @@ jobs:
     if: needs.setup.outputs.execution_mode == 'parallel'
     steps:
       - uses: actions/checkout@v4
-      - name: Executar testes (paralelo)
-        uses: ./.github/actions/run-tests
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache == 'true'
         with:
-          pip_cache: ${{ needs.setup.outputs.pip_cache }}
-          run_slow_tests: ${{ needs.setup.outputs.run_slow_tests }}
-          variation_label: ${{ needs.setup.outputs.variation_label }}
-          execution_mode: parallel
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache != 'true'
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Instalar e testar
+        run: |
+          mkdir -p reports
+          pip install -r requirements-dev.txt
+          MARKER='-m "not slow"'
+          if [ "${{ needs.setup.outputs.run_slow_tests }}" = "true" ]; then
+            MARKER=""
+          fi
+          eval pytest $MARKER --cov=analyzer --junitxml=reports/junit.xml -v
+          python scripts/export_run_metrics.py
+        env:
+          VARIATION_LABEL: ${{ needs.setup.outputs.variation_label }}
+          EXECUTION_MODE: ${{ needs.setup.outputs.execution_mode }}
+          PIP_CACHE: ${{ needs.setup.outputs.pip_cache }}
+          WORKFLOW_STATUS: success
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pipeline-metrics-${{ github.run_id }}
+          path: reports/
+          if-no-files-found: warn
 
   test_sequential:
     runs-on: ubuntu-latest
@@ -130,13 +138,38 @@ jobs:
     if: needs.setup.outputs.execution_mode == 'sequential'
     steps:
       - uses: actions/checkout@v4
-      - name: Executar testes (sequencial)
-        uses: ./.github/actions/run-tests
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache == 'true'
         with:
-          pip_cache: ${{ needs.setup.outputs.pip_cache }}
-          run_slow_tests: ${{ needs.setup.outputs.run_slow_tests }}
-          variation_label: ${{ needs.setup.outputs.variation_label }}
-          execution_mode: sequential
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache != 'true'
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Instalar e testar
+        run: |
+          mkdir -p reports
+          pip install -r requirements-dev.txt
+          MARKER='-m "not slow"'
+          if [ "${{ needs.setup.outputs.run_slow_tests }}" = "true" ]; then
+            MARKER=""
+          fi
+          eval pytest $MARKER --cov=analyzer --junitxml=reports/junit.xml -v
+          python scripts/export_run_metrics.py
+        env:
+          VARIATION_LABEL: ${{ needs.setup.outputs.variation_label }}
+          EXECUTION_MODE: ${{ needs.setup.outputs.execution_mode }}
+          PIP_CACHE: ${{ needs.setup.outputs.pip_cache }}
+          WORKFLOW_STATUS: success
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pipeline-metrics-${{ github.run_id }}
+          path: reports/
+          if-no-files-found: warn
 
   test_inverted:
     runs-on: ubuntu-latest
@@ -144,13 +177,38 @@ jobs:
     if: needs.setup.outputs.execution_mode == 'inverted'
     steps:
       - uses: actions/checkout@v4
-      - name: Executar testes (ordem invertida — teste antes do lint)
-        uses: ./.github/actions/run-tests
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache == 'true'
         with:
-          pip_cache: ${{ needs.setup.outputs.pip_cache }}
-          run_slow_tests: ${{ needs.setup.outputs.run_slow_tests }}
-          variation_label: ${{ needs.setup.outputs.variation_label }}
-          execution_mode: inverted
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache != 'true'
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Instalar e testar
+        run: |
+          mkdir -p reports
+          pip install -r requirements-dev.txt
+          MARKER='-m "not slow"'
+          if [ "${{ needs.setup.outputs.run_slow_tests }}" = "true" ]; then
+            MARKER=""
+          fi
+          eval pytest $MARKER --cov=analyzer --junitxml=reports/junit.xml -v
+          python scripts/export_run_metrics.py
+        env:
+          VARIATION_LABEL: ${{ needs.setup.outputs.variation_label }}
+          EXECUTION_MODE: ${{ needs.setup.outputs.execution_mode }}
+          PIP_CACHE: ${{ needs.setup.outputs.pip_cache }}
+          WORKFLOW_STATUS: success
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pipeline-metrics-${{ github.run_id }}
+          path: reports/
+          if-no-files-found: warn
 
   lint_inverted:
     runs-on: ubuntu-latest
@@ -158,19 +216,20 @@ jobs:
     if: needs.setup.outputs.execution_mode == 'inverted'
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache == 'true'
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-          cache: ${{ needs.setup.outputs.pip_cache == 'true' && 'pip' || '' }}
+          cache: pip
           cache-dependency-path: requirements-dev.txt
-
+      - uses: actions/setup-python@v5
+        if: needs.setup.outputs.pip_cache != 'true'
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
       - name: Instalar dependencias
         run: pip install -r requirements-dev.txt
-
-      - name: Ruff lint (apos testes)
+      - name: Ruff lint apos testes
         run: ruff check src tests
-
       - name: Lint probe
         run: python scripts/lint_probe.py
 
@@ -179,67 +238,10 @@ jobs:
     needs: [setup, lint, test_parallel, test_sequential, test_inverted, lint_inverted]
     if: always() && !cancelled()
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Baixar artefatos de teste
-        uses: actions/download-artifact@v4
-        with:
-          pattern: test-reports-*
-          merge-multiple: true
-          path: reports
-
-      - name: Baixar artefatos de lint
-        uses: actions/download-artifact@v4
-        with:
-          pattern: lint-timings-*
-          merge-multiple: true
-          path: reports
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Resolver status do workflow
-        id: status
+      - name: Status consolidado
         run: |
-          STATUS="success"
-          if [ "${{ needs.lint.result }}" = "failure" ] || \
-             [ "${{ needs.test_parallel.result }}" = "failure" ] || \
-             [ "${{ needs.test_sequential.result }}" = "failure" ] || \
-             [ "${{ needs.test_inverted.result }}" = "failure" ] || \
-             [ "${{ needs.lint_inverted.result }}" = "failure" ]; then
-            STATUS="failure"
-          fi
-          echo "workflow_status=$STATUS" >> "$GITHUB_OUTPUT"
-
-      - name: Gerar run-metrics.json
-        env:
-          COMMIT_MESSAGE: ${{ github.event.head_commit.message || github.event.pull_request.title || 'n/a' }}
-          WORKFLOW_STATUS: ${{ steps.status.outputs.workflow_status }}
-          VARIATION_LABEL: ${{ needs.setup.outputs.variation_label }}
-          EXECUTION_MODE: ${{ needs.setup.outputs.execution_mode }}
-          PIP_CACHE: ${{ needs.setup.outputs.pip_cache }}
-        run: python scripts/export_run_metrics.py
-
-      - name: Gerar relatorio extra (artefato grande — variacao 12)
-        run: |
-          mkdir -p reports
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          payload = {"runs": [], "notes": "relatorio sintetico para medir tamanho de artefato"}
-          payload["runs"] = [{"id": i, "value": "x" * 500} for i in range(120)]
-          Path("reports/extra-report.json").write_text(json.dumps(payload))
-          PY
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: pipeline-metrics-${{ github.run_id }}
-          path: |
-            reports/junit.xml
-            reports/run-metrics.json
-            reports/step-timings.json
-            reports/extra-report.json
-          if-no-files-found: warn
-          retention-days: 90
+          echo "lint=${{ needs.lint.result }}"
+          echo "test_parallel=${{ needs.test_parallel.result }}"
+          echo "test_sequential=${{ needs.test_sequential.result }}"
+          echo "test_inverted=${{ needs.test_inverted.result }}"
+          echo "lint_inverted=${{ needs.lint_inverted.result }}"
