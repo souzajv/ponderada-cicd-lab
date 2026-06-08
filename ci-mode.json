@@ -2,7 +2,7 @@
   "execution_mode": "parallel",
   "pip_cache": true,
   "run_slow_tests": false,
-  "force_test_failure": false,
+  "force_test_failure": true,
   "force_lint_failure": false,
-  "variation_label": "01-baseline-verde"
+  "variation_label": "02-teste-falhando"
 }
