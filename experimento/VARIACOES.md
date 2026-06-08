@@ -1,6 +1,6 @@
 # Variações controladas do experimento
 
-Execuções **válidas** (workflow funcional) realizadas em 2026-06-08.
+A tabela abaixo lista as 14 execuções válidas do experimento, realizadas em 2026-06-08. Cada linha traz o `run_id`, o commit e o link direto para o GitHub Actions.
 
 | # | variation_label | run_id | commit_sha | status | link |
 |---|---|---|---|---|---|
@@ -19,6 +19,4 @@ Execuções **válidas** (workflow funcional) realizadas em 2026-06-08.
 | 13 | dispatch-parallel | 27112496051 | c3a3af5 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112496051) |
 | 14 | dispatch-sequential | 27112496923 | c3a3af5 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112496923) |
 
-> **Nota:** as 12 primeiras execuções após o push inicial falharam em 0s por erro de
-> validação do YAML (composite action inválido). Corrigido no commit `846b08a` e
-> reexecutadas na segunda rodada acima.
+**Nota:** as 12 primeiras execuções após o push inicial falharam com duração 0s por erro de validação do YAML (composite action inválido). O problema foi corrigido no commit `846b08a` e as variações foram reexecutadas na segunda rodada, listada acima.

@@ -2,12 +2,10 @@
 
 ![CI Pipeline Metrics Experiment](https://github.com/souzajv/ponderada-cicd-lab/actions/workflows/ci.yml/badge.svg)
 
-Experimento individual de **métricas de pipeline CI/CD** com GitHub Actions.  
-Mini-projeto inspirado no [Analyzer Service](src/analyzer/) do projeto Kombi — G01 (Jacto Drones OS).
+Este repositório documenta um experimento individual de métricas de pipeline CI/CD com GitHub Actions. O código base é um mini-projeto inspirado no [Analyzer Service](src/analyzer/) do Kombi, o projeto do grupo G01 (Jacto Drones OS).
 
-**Autor:** João Victor Souza (`souzajv`) · **Curso:** Engenharia de Software — INTELI (ESMD10)
-
----
+**Autor:** João Victor Souza (`souzajv`)  
+**Curso:** Engenharia de Software, INTELI (ESMD10)
 
 ## Índice
 
@@ -22,9 +20,9 @@ Mini-projeto inspirado no [Analyzer Service](src/analyzer/) do projeto Kombi —
 - [Estrutura do repositório](#estrutura)
 - [Projeto de código (mini-analyzer)](#codigo)
 
----
-
 ## Início rápido para o professor
+
+Se você vai corrigir a entrega, estes links levam direto ao que importa.
 
 | O que você precisa | Link direto |
 |---|---|
@@ -34,15 +32,15 @@ Mini-projeto inspirado no [Analyzer Service](src/analyzer/) do projeto Kombi —
 | Dados para análise (CSV limpo) | [entregaveis/dados/pipeline_metricas_limpo.csv](entregaveis/dados/pipeline_metricas_limpo.csv) |
 | Pipeline no GitHub Actions | [Actions](https://github.com/souzajv/ponderada-cicd-lab/actions) |
 
----
-
 ## Conformidade com o enunciado
 
-### Tarefa — pipeline GitHub Actions
+A seção a seguir resume, item a item, como a entrega atende ao que foi pedido. Cada linha aponta para evidência verificável no repositório.
+
+### Tarefa: pipeline GitHub Actions
 
 | Requisito | Status | Evidência |
 |---|---|---|
-| Instalação de dependências | OK | `pip install -r requirements-dev.txt` em todos os jobs — [ci.yml](.github/workflows/ci.yml) |
+| Instalação de dependências | OK | `pip install -r requirements-dev.txt` em todos os jobs ([ci.yml](.github/workflows/ci.yml)) |
 | Lint / análise estática | OK | `ruff check src tests` |
 | Testes automatizados | OK | `pytest` + `junit.xml` + cobertura |
 | Geração de artefato | OK | `pipeline-metrics-{run_id}` e `pipeline-report-{run_id}` |
@@ -67,7 +65,7 @@ Mini-projeto inspirado no [Analyzer Service](src/analyzer/) do projeto Kombi —
 
 | Métrica (enunciado) | Campo / arquivo |
 |---|---|
-| Tempo total do workflow | `workflow_duration` — [pipeline_metricas_limpo.csv](entregaveis/dados/pipeline_metricas_limpo.csv) |
+| Tempo total do workflow | `workflow_duration` em [pipeline_metricas_limpo.csv](entregaveis/dados/pipeline_metricas_limpo.csv) |
 | Tempo de cada job | `job_name`, `job_duration` |
 | Tempo de cada etapa (step) | [pipeline_steps.csv](entregaveis/dados/pipeline_steps.csv) |
 | Status (sucesso/falha) | `status` |
@@ -80,7 +78,7 @@ Mini-projeto inspirado no [Analyzer Service](src/analyzer/) do projeto Kombi —
 | *Opcional:* lead time | `lead_time_s` |
 | *Opcional:* tamanho artefatos | `artifact_size_bytes` |
 
-Schema mínimo do enunciado (`run_id,commit_sha,commit_message,status,workflow_duration,job_name,job_duration,test_count,test_failures,timestamp`) está **contido** no CSV limpo.
+O schema mínimo do enunciado (`run_id,commit_sha,commit_message,status,workflow_duration,job_name,job_duration,test_count,test_failures,timestamp`) está contido no CSV limpo.
 
 ### Parte de codificação e visualização
 
@@ -88,43 +86,39 @@ Schema mínimo do enunciado (`run_id,commit_sha,commit_message,status,workflow_d
 |---|---|---|
 | Script Python consultando API GitHub | OK | [coletar_metricas_pipeline.py](entregaveis/coletar_metricas_pipeline.py) |
 | Base CSV/JSON (não cópia manual) | OK | [dados/](entregaveis/dados/) |
-| 4 gráficos obrigatórios | OK | [graficos/01–04](entregaveis/graficos/) |
+| 4 gráficos obrigatórios | OK | [graficos/01 a 04](entregaveis/graficos/) |
 | 8 perguntas de análise no relatório | OK | [relatorio-tecnico.md §4](entregaveis/relatorio-tecnico.md) |
 
-### Relatório — requisitos obrigatórios
+### Relatório: requisitos obrigatórios
 
 | Requisito | Onde |
 |---|---|
-| Prints ou links das execuções | Links em [VARIACOES.md](experimento/VARIACOES.md) + [evidencias/](entregaveis/evidencias/) |
+| Prints ou links das execuções | Links em [VARIACOES.md](experimento/VARIACOES.md) e [evidencias/](entregaveis/evidencias/) |
 | IDs reais dos workflows | Coluna `run_id` no CSV e tabela VARIACOES |
-| Commits reais | Coluna `commit_sha` + `git log` |
-| Explicação das variações | [VARIACOES.md](experimento/VARIACOES.md) + [ci-mode.json](ci-mode.json) |
+| Commits reais | Coluna `commit_sha` e `git log` |
+| Explicação das variações | [VARIACOES.md](experimento/VARIACOES.md) e [ci-mode.json](ci-mode.json) |
 | Gráficos a partir dos dados coletados | [graficos/](entregaveis/graficos/) |
 | >= 2 resultados inesperados | [relatorio §6](entregaveis/relatorio-tecnico.md) |
-| Hipótese vs observado | [hipoteses.md](experimento/hipoteses.md) + [relatorio §7](entregaveis/relatorio-tecnico.md) |
+| Hipótese vs observado | [hipoteses.md](experimento/hipoteses.md) e [relatorio §7](entregaveis/relatorio-tecnico.md) |
 | Limitações do experimento | [relatorio §4.7](entregaveis/relatorio-tecnico.md) |
-
----
 
 ## Entregáveis obrigatórios (7 itens)
 
 | # | Entregável | Link |
 |---|---|---|
 | 1 | Repositório GitHub | https://github.com/souzajv/ponderada-cicd-lab |
-| 2 | YAML do GitHub Actions | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) · [no GitHub](https://github.com/souzajv/ponderada-cicd-lab/blob/main/.github/workflows/ci.yml) |
+| 2 | YAML do GitHub Actions | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) e [no GitHub](https://github.com/souzajv/ponderada-cicd-lab/blob/main/.github/workflows/ci.yml) |
 | 3 | Script de coleta das métricas | [entregaveis/coletar_metricas_pipeline.py](entregaveis/coletar_metricas_pipeline.py) |
-| 4 | Base de dados CSV/JSON | [pipeline_metricas_limpo.csv](entregaveis/dados/pipeline_metricas_limpo.csv) · [pipeline_steps.csv](entregaveis/dados/pipeline_steps.csv) · [pipeline_metricas.json](entregaveis/dados/pipeline_metricas.json) |
+| 4 | Base de dados CSV/JSON | [pipeline_metricas_limpo.csv](entregaveis/dados/pipeline_metricas_limpo.csv), [pipeline_steps.csv](entregaveis/dados/pipeline_steps.csv), [pipeline_metricas.json](entregaveis/dados/pipeline_metricas.json) |
 | 5 | Gráficos produzidos | [entregaveis/graficos/](entregaveis/graficos/) |
 | 6 | Relatório técnico Markdown | [entregaveis/relatorio-tecnico.md](entregaveis/relatorio-tecnico.md) |
 | 7 | Como reproduzir o experimento | [entregaveis/reproducao.md](entregaveis/reproducao.md) |
 
-Índice detalhado dos entregáveis: [entregaveis/README.md](entregaveis/README.md)
-
----
+O índice detalhado dos entregáveis está em [entregaveis/README.md](entregaveis/README.md).
 
 ## Métricas coletadas
 
-Coleta automatizada via **GitHub REST API** (token `gh auth token`):
+Depois que o pipeline roda no GitHub, a coleta acontece pela API REST, usando o token do `gh auth token`.
 
 ```bash
 cd entregaveis
@@ -135,22 +129,15 @@ python coletar_metricas_pipeline.py --repo souzajv/ponderada-cicd-lab
 | Arquivo | Uso |
 |---|---|
 | `pipeline_metricas_limpo.csv` | **Análise principal** (runs válidos, sem jobs skipped) |
-| `pipeline_metricas.csv` | Dataset completo / auditoria |
+| `pipeline_metricas.csv` | Dataset completo para auditoria |
 | `pipeline_steps.csv` | Duração por step dentro de cada job |
 | `dados/raw/run-*.json` | Cache bruto da API |
 
-Scripts auxiliares: [gerar_graficos_pipeline.py](entregaveis/gerar_graficos_pipeline.py) · [gerar_evidencias.py](entregaveis/gerar_evidencias.py)
-
----
+Scripts auxiliares: [gerar_graficos_pipeline.py](entregaveis/gerar_graficos_pipeline.py) e [gerar_evidencias.py](entregaveis/gerar_evidencias.py).
 
 ## Variações do experimento (14 runs)
 
-Controle via [ci-mode.json](ci-mode.json) + script [aplicar_variacao.py](scripts/aplicar_variacao.py).
-
-Documentação completa: [experimento/VARIACOES.md](experimento/VARIACOES.md)  
-Hipóteses iniciais: [experimento/hipoteses.md](experimento/hipoteses.md)
-
----
+Cada variação é controlada por [ci-mode.json](ci-mode.json) e pelo script [aplicar_variacao.py](scripts/aplicar_variacao.py). A documentação completa das execuções está em [experimento/VARIACOES.md](experimento/VARIACOES.md). As hipóteses registradas antes do experimento estão em [experimento/hipoteses.md](experimento/hipoteses.md).
 
 ## Gráficos e evidências
 
@@ -161,9 +148,9 @@ Hipóteses iniciais: [experimento/hipoteses.md](experimento/hipoteses.md)
 | 1 | Tempo total do pipeline por execução | [01_tempo_total_por_execucao.png](entregaveis/graficos/01_tempo_total_por_execucao.png) |
 | 2 | Tempo por job ou etapa | [02_tempo_por_job.png](entregaveis/graficos/02_tempo_por_job.png) |
 | 3 | Taxa de sucesso e falha | [03_taxa_sucesso_falha.png](entregaveis/graficos/03_taxa_sucesso_falha.png) |
-| 4 | Testes × duração do pipeline | [04_testes_vs_duracao.png](entregaveis/graficos/04_testes_vs_duracao.png) |
+| 4 | Testes por duração do pipeline | [04_testes_vs_duracao.png](entregaveis/graficos/04_testes_vs_duracao.png) |
 
-### Gráficos extras (excelência)
+### Gráficos extras
 
 | # | Gráfico | Arquivo |
 |---|---|---|
@@ -173,12 +160,7 @@ Hipóteses iniciais: [experimento/hipoteses.md](experimento/hipoteses.md)
 
 ### Evidências visuais
 
-O enunciado aceita **prints ou links**. Esta entrega inclui **ambos**:
-
-- **Links reais** de cada execução em [VARIACOES.md](experimento/VARIACOES.md)
-- **Painéis visuais** gerados a partir dos dados da API em [entregaveis/evidencias/](entregaveis/evidencias/)
-
----
+O enunciado aceita prints ou links. Esta entrega inclui os dois: links reais de cada execução em [VARIACOES.md](experimento/VARIACOES.md) e painéis visuais gerados a partir da API em [entregaveis/evidencias/](entregaveis/evidencias/).
 
 ## Relatório e análise
 
@@ -187,13 +169,11 @@ O enunciado aceita **prints ou links**. Esta entrega inclui **ambos**:
 | [relatorio-tecnico.md](entregaveis/relatorio-tecnico.md) | Análise completa: 8 perguntas, DORA, inesperados, hipóteses, limitações |
 | [ENTREGA.md](entregaveis/ENTREGA.md) | Folha resumo para correção rápida |
 
-Relatório inclui fundamentação **Martin Fowler** (CI, Deployment Pipeline, Test Pyramid) mapeada às evidências do experimento — ver [§10 do relatório](entregaveis/relatorio-tecnico.md#10-fundamentação-teórica-martin-fowler).
-
----
+O relatório inclui fundamentação em **Martin Fowler** (CI, Deployment Pipeline, Test Pyramid) mapeada às evidências do experimento. Veja a [seção 10 do relatório](entregaveis/relatorio-tecnico.md#10-fundamentação-teórica-martin-fowler).
 
 ## Como reproduzir
 
-Passo a passo: [entregaveis/reproducao.md](entregaveis/reproducao.md)
+O passo a passo detalhado está em [entregaveis/reproducao.md](entregaveis/reproducao.md). Em resumo:
 
 ```bash
 git clone https://github.com/souzajv/ponderada-cicd-lab.git
@@ -204,8 +184,6 @@ python gerar_graficos_pipeline.py
 python gerar_evidencias.py
 ```
 
----
-
 ## Estrutura do repositório
 
 | Pasta / arquivo | Conteúdo |
@@ -213,16 +191,14 @@ python gerar_evidencias.py
 | [`src/analyzer/`](src/analyzer/) | Mini-motor de análise de telemetria (tema G01) |
 | [`tests/`](tests/) | Suíte pytest com variações controladas |
 | [`.github/workflows/`](.github/workflows/) | Pipeline instrumentado |
-| [`experimento/`](experimento/) | Variações, hipóteses, evidências do experimento |
-| [`entregaveis/`](entregaveis/) | Coleta, gráficos, relatório, dados |
+| [`experimento/`](experimento/) | Variações, hipóteses e evidências do experimento |
+| [`entregaveis/`](entregaveis/) | Coleta, gráficos, relatório e dados |
 | [`ci-mode.json`](ci-mode.json) | Configuração de cada variação |
 | [`scripts/`](scripts/) | Automação (coleta CI, variações, export) |
 
----
-
 ## Projeto de código (mini-analyzer)
 
-Validação local:
+Para validar o código localmente antes de subir uma variação:
 
 ```bash
 pip install -r requirements-dev.txt
@@ -230,7 +206,7 @@ ruff check src tests
 pytest -m "not slow" -v
 ```
 
-Modo do experimento em [ci-mode.json](ci-mode.json):
+O modo do experimento é definido em [ci-mode.json](ci-mode.json):
 
 ```json
 {
@@ -243,8 +219,6 @@ Modo do experimento em [ci-mode.json](ci-mode.json):
 }
 ```
 
----
-
 ## Diferenciação
 
-Este experimento mede **métricas de pipeline CI/CD** (GitHub Actions), distinto de abordagens focadas em telemetria de voo ou plataformas alternativas de CI.
+Este experimento mede métricas de pipeline CI/CD no GitHub Actions. O foco é distinto de abordagens centradas em telemetria de voo ou em outras plataformas de CI.
