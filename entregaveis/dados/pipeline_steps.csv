@@ -1,4 +1,80 @@
 run_id,commit_sha,status,variation_label,job_name,step_name,step_number,step_conclusion,step_duration,timestamp
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,setup,Set up job,1,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,setup,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,setup,Resolver modo do experimento,4,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,setup,Complete job,9,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Set up job,1,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Run actions/setup-python@v5,3,success,4.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Instalar dependencias,5,success,6.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Ruff lint,6,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Lint probe,7,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Exportar metadados do lint,8,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Run actions/upload-artifact@v4,9,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Post Run actions/setup-python@v5,17,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Post Run actions/checkout@v4,18,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,lint,Complete job,19,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Set up job,1,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Instalar dependencias,5,success,4.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Executar pytest,6,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Exportar metricas do teste,7,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Run actions/upload-artifact@v4,8,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Post Run actions/setup-python@v5,15,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Post Run actions/checkout@v4,16,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,test_parallel,Complete job,17,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Set up job,1,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Run actions/download-artifact@v4,3,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Run actions/setup-python@v5,4,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Gerar relatorio extra (variacao 12),5,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Consolidar metricas finais,6,success,8.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Run actions/upload-artifact@v4,7,success,1.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:38:35Z
+27112901765,3c26453e4e2421dbc1e545ea657c1f68ad9728e9,success,12-artefato-grande,report,Complete job,15,success,0.0,2026-06-08T02:38:35Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,setup,Set up job,1,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,setup,Resolver modo do experimento,4,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,setup,Post Run actions/setup-python@v5,7,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,setup,Post Run actions/checkout@v4,8,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,setup,Complete job,9,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Set up job,1,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Run actions/setup-python@v5,3,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Instalar dependencias,5,success,5.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Ruff lint,6,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Lint probe,7,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Exportar metadados do lint,8,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Run actions/upload-artifact@v4,9,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Post Run actions/setup-python@v5,17,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Post Run actions/checkout@v4,18,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,lint,Complete job,19,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Set up job,1,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Run actions/checkout@v4,2,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Run actions/setup-python@v5,3,success,2.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Instalar dependencias,5,success,5.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Executar pytest,6,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Exportar metricas do teste,7,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Run actions/upload-artifact@v4,8,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Post Run actions/setup-python@v5,15,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Post Run actions/checkout@v4,16,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,test_parallel,Complete job,17,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Set up job,1,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Run actions/download-artifact@v4,3,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Run actions/setup-python@v5,4,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Gerar relatorio extra (variacao 12),5,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Consolidar metricas finais,6,success,7.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Run actions/upload-artifact@v4,7,success,1.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Post Run actions/setup-python@v5,13,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Post Run actions/checkout@v4,14,success,0.0,2026-06-08T02:33:20Z
+27112763964,4d01d6ac94fe6f5b7faf8c9d592fe57171f553db,success,12-artefato-grande,report,Complete job,15,success,0.0,2026-06-08T02:33:20Z
 27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Set up job,1,success,0.0,2026-06-08T02:27:46Z
 27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Run actions/checkout@v4,2,success,1.0,2026-06-08T02:27:46Z
 27112609547,e0aeb2469727640f96c255591aec0e016d0316e1,success,12-artefato-grande,setup,Run actions/setup-python@v5,3,success,0.0,2026-06-08T02:27:46Z
