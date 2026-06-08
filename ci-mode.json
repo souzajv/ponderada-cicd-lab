@@ -1,8 +1,8 @@
 {
-  "execution_mode": "sequential",
+  "execution_mode": "parallel",
   "pip_cache": true,
   "run_slow_tests": false,
   "force_test_failure": false,
-  "force_lint_failure": true,
-  "variation_label": "11-falha-lint"
+  "force_lint_failure": false,
+  "variation_label": "12-artefato-grande"
 }
