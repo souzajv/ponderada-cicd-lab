@@ -6,7 +6,7 @@ Experimento individual de métricas de processo com **GitHub Actions**.
 
 | # | Entregável | Onde está |
 |---|---|---|
-| 1 | Link do repositório GitHub | ver `relatorio-tecnico.md` após publicação |
+| 1 | Link do repositório GitHub | https://github.com/souzajv/ponderada-cicd-lab |
 | 2 | YAML do GitHub Actions | [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) |
 | 3 | Script de coleta | [`coletar_metricas_pipeline.py`](./coletar_metricas_pipeline.py) |
 | 4 | Base CSV/JSON | [`dados/pipeline_metricas.csv`](./dados/pipeline_metricas.csv) |

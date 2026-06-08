@@ -1,28 +1,24 @@
 # Variações controladas do experimento
 
-Cada linha corresponde a um commit que altera `ci-mode.json` e/ou o código.
-Após publicar no GitHub, preencher `run_id` e `commit_sha` reais.
+Execuções **válidas** (workflow funcional) realizadas em 2026-06-08.
 
-| # | variation_label | execution_mode | pip_cache | run_slow_tests | force_test_failure | force_lint_failure | commit_message sugerida | run_id | commit_sha | status |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 01 | 01-baseline-verde | parallel | true | false | false | false | feat: baseline verde do experimento | | | |
-| 02 | 02-teste-falhando | parallel | true | false | true | false | test: forcar falha de teste | | | |
-| 03 | 03-correcao-teste | parallel | true | false | false | false | fix: remover falha forcada de teste | | | |
-| 04 | 04-mais-testes | parallel | true | false | false | false | test: ampliar suite com 15 casos | | | |
-| 05 | 05-teste-lento | parallel | true | true | false | false | test: habilitar teste lento | | | |
-| 06 | 06-cache-on | parallel | true | false | false | false | ci: cache pip habilitado | | | |
-| 07 | 07-cache-off | parallel | false | false | false | false | ci: cache pip desabilitado | | | |
-| 08 | 08-paralelo | parallel | true | false | false | false | ci: jobs lint e test em paralelo | | | |
-| 09 | 09-sequencial | sequential | true | false | false | false | ci: test depende de lint | | | |
-| 10 | 10-ordem-invertida | inverted | true | false | false | false | ci: lint apos testes | | | |
-| 11 | 11-falha-lint | sequential | true | false | false | true | ci: falha intencional de lint | | | |
-| 12 | 12-artefato-grande | parallel | true | false | false | false | ci: relatorio extra no artefato | | | |
-| 13 | dispatch-paralelo | dispatch-parallel | parallel | true | false | false | workflow_dispatch manual | | | |
-| 14 | dispatch-sequencial | dispatch-sequential | sequential | true | false | false | workflow_dispatch manual | | | |
+| # | variation_label | run_id | commit_sha | status | link |
+|---|---|---|---|---|---|
+| 01 | 01-baseline-verde | 27112464101 | e3e3c8a | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112464101) |
+| 02 | 02-teste-falhando | 27112466672 | f724b9d | failure | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112466672) |
+| 03 | 03-correcao-teste | 27112469375 | ecf658f | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112469375) |
+| 04 | 04-mais-testes | 27112472129 | 3eec61b | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112472129) |
+| 05 | 05-teste-lento | 27112474712 | 20bc662 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112474712) |
+| 06 | 06-cache-on | 27112477570 | 1a7696f | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112477570) |
+| 07 | 07-cache-off | 27112480695 | 5f5e0aa | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112480695) |
+| 08 | 08-paralelo | 27112483564 | 89ae72a | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112483564) |
+| 09 | 09-sequencial | 27112486298 | ec55d58 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112486298) |
+| 10 | 10-ordem-invertida | 27112489037 | 8cfd2f8 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112489037) |
+| 11 | 11-falha-lint | 27112491871 | 80fbf6a | failure | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112491871) |
+| 12 | 12-artefato-grande | 27112494596 | c3a3af5 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112494596) |
+| 13 | dispatch-parallel | 27112496051 | c3a3af5 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112496051) |
+| 14 | dispatch-sequential | 27112496923 | c3a3af5 | success | [run](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112496923) |
 
-## Como aplicar cada variação
-
-1. Editar [`ci-mode.json`](../ci-mode.json) conforme a linha.
-2. Se a variação exigir mudança de código (ex.: #04 já inclui `tests/test_variacoes.py`), commitar junto.
-3. `git push origin main` e aguardar o workflow.
-4. Copiar `run_id` da URL: `https://github.com/<owner>/ponderada-cicd-lab/actions/runs/<run_id>`.
+> **Nota:** as 12 primeiras execuções após o push inicial falharam em 0s por erro de
+> validação do YAML (composite action inválido). Corrigido no commit `846b08a` e
+> reexecutadas na segunda rodada acima.
