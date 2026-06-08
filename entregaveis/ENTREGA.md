@@ -1,11 +1,4 @@
-# Folha de entrega — Ponderada CI/CD (métricas de pipeline)
-
-**Aluno:** João Victor Souza (`souzajv`)  
-**Matrícula:** _[preencher manualmente antes da entrega]_  
-**Curso:** Engenharia de Software — INTELI (ESMD10)  
-**Data:** 2026-06-08  
-**Tema:** Métricas de pipeline CI/CD com GitHub Actions  
-**Conexão G01:** mini-analyzer derivado do [Analyzer Service](https://github.com/souzajv/ponderada-cicd-lab/tree/main/src/analyzer) do projeto Kombi (Jacto Drones OS)
+# Folha de entrega — Ponderada CI/CD
 
 Índice navegável e checklist de conformidade com o enunciado: [README principal § Conformidade](../README.md#conformidade)
 

@@ -54,8 +54,8 @@ push / workflow_dispatch
 | Artefato | Descrição |
 |---|---|
 | `pipeline_metricas.csv` | Todos os jobs coletados (com ruído de runs inválidos) |
-| `pipeline_metricas_limpo.csv` | **17 runs válidos**, jobs sem `skipped`, duração ≥ 5s |
-| `pipeline_steps.csv` | **449 steps** com duração por etapa (API `jobs[].steps`) |
+| `pipeline_metricas_limpo.csv` | **19 runs válidos**, jobs sem `skipped`, duração ≥ 5s |
+| `pipeline_steps.csv` | **525 steps** com duração por etapa (API `jobs[].steps`) |
 | `dados/raw/run-*.json` | Cache bruto da API para auditoria |
 
 Coleta: [`coletar_metricas_pipeline.py`](./coletar_metricas_pipeline.py) com token `gh auth token`.
@@ -125,10 +125,10 @@ Paralelismo reduziu ~**35%** vs sequencial. Com teste lento (var. 05, 27s), o jo
 
 ### 4.4 Quais falhas foram mais frequentes?
 
-Nos **17 runs válidos** do dataset limpo:
+Nos **19 runs válidos** do dataset limpo (inclui runs pós-auditoria, ex. `27112901765`):
 
-- **success:** 15 (88,2%)
-- **failure:** 2 (11,8%) — variações intencionais 02 (teste) e 11 (lint)
+- **success:** 17 (89,5%)
+- **failure:** 2 (10,5%) — variações intencionais 02 (teste) e 11 (lint)
 
 Falhas por tipo: 1× teste (`test_failures=1`), 1× lint (job `lint` falhou em ~11s).
 
@@ -136,13 +136,18 @@ Falhas por tipo: 1× teste (`test_failures=1`), 1× lint (job `lint` falhou em ~
 
 Runs verdes: **22–34s** (paralelo vs sequencial). Falha de lint (var. 11): feedback em ~16s (setup + lint), antes de gastar tempo em testes — fail-fast adequado.
 
+No vocabulário de Fowler (*Deployment Pipeline*), o pipeline deve ordenar estágios do **mais barato/rápido ao mais caro**: lint estático (~11–17s) antes de testes que instalam dependências e executam pytest (~10–15s). A var. **10 (ordem invertida)** violou esse princípio e custou **45s** vs **34s** no sequencial padrão — evidência quantitativa de que feedback rápido não é só "pipeline curto", mas **sequência correta de confiança**.
+
 ### 4.6 Que melhorias poderiam ser feitas?
 
-1. Unificar jobs `test_*` em um único job parametrizado (menos ruído na API).
-2. Cache de `.pytest_cache` para suítes maiores.
-3. Publicar `run-metrics.json` no lint **sempre** (`if: always()`) — implementado na versão final do workflow.
-4. Job `report` consolidado com `extra-report.json` — implementado.
-5. Habilitar `app:test` no GitLab do g01 com base nas conclusões deste experimento.
+Priorizadas pela *Test Pyramid* e pelo princípio fail-fast de Fowler:
+
+1. **Checagens baratas primeiro:** manter lint antes de testes no caminho padrão; nunca replicar ordem invertida (var. 10).
+2. **Base da pirâmide rápida:** CI já exclui `@pytest.mark.slow` por padrão (`-m "not slow"`); manter testes lentos em job opcional ou nightly, não no caminho crítico de integração.
+3. **Confiança para integrar:** `run-metrics.json`, JUnit e job `report` com `extra-report.json` — **implementados** na versão final (`if: always()` no export).
+4. Unificar jobs `test_*` em um único job parametrizado (menos ruído na API).
+5. Cache de `.pytest_cache` para suítes maiores (ROI cresce com volume de testes unitários).
+6. Habilitar `app:test` no GitLab do g01 com lint+test em paralelo.
 
 ### 4.7 Limitações dos dados
 
@@ -156,15 +161,17 @@ Runs verdes: **22–34s** (paralelo vs sequencial). Falha de lint (var. 11): fee
 - Manter lint+test em **paralelo** no g01 quando `app:test` for habilitado (~12s economizados).
 - Cache pip: ROI baixo neste porte; reavaliar quando dependências crescerem.
 - Evitar ordem invertida (test antes de lint): +11s sem ganho de qualidade.
-- Métricas coletadas permitem definir SLO de pipeline (ex.: p95 < 40s).
+- **SLO proposto (quality gate):** `workflow_duration` p95 **< 40s** nos runs verdes com suíte padrão (`not slow`). Runs atuais ficam entre 22s (paralelo) e 34s (sequencial), dentro do SLO; var. 05 (slow) e 10 (invertido) ficam **fora** do gate por design experimental — não devem bloquear merges no g01.
 
 ## 5. Métricas de processo (DORA)
+
+As métricas DORA medem **velocidade e estabilidade de entrega**; complementam — não substituem — as práticas de *Continuous Integration* de Fowler (integração frequente, build self-testing, correção imediata). DORA responde "quão rápido e estável entregamos"; Fowler responde "como o pipeline gera confiança para integrar".
 
 | Métrica DORA | Medição no experimento | Valor observado |
 |---|---|---|
 | Lead Time for Changes | `lead_time_s` (commit → conclusão) | média ~30s nos runs válidos |
 | Deployment Frequency | pushes no experimento | 14 variações em ~5 min |
-| Change Failure Rate | failures / runs válidos | 2/17 ≈ **11,8%** |
+| Change Failure Rate | failures / runs válidos | 2/19 ≈ **10,5%** |
 | Time to Restore (proxy) | var. 02 → 03 (um push) | ~30s até pipeline verde |
 
 ## 6. Resultados inesperados
@@ -212,6 +219,74 @@ Com base nas evidências quantitativas:
 3. Habilitar cache npm/pip — ganho marginal hoje, útil quando a suíte Jest (~2800 linhas) rodar no CI.
 4. Replicar padrão de artefato JUnit + script de coleta (como `ci-build-report.js` já existente no g01).
 
-## 10. Reprodução
+## 10. Fundamentação teórica (Martin Fowler)
+
+Esta seção ancora as conclusões quantitativas em conceitos da literatura de engenharia de software — demonstrando que o experimento não apenas mediu tempos, mas validou (ou refutou) princípios consagrados.
+
+### 10.1 Continuous Integration — 7 práticas
+
+Mapeamento das práticas de Fowler ao repositório (evidência verificável):
+
+| Prática CI (Fowler) | Status | Evidência no experimento |
+|---|---|---|
+| Repositório único de integração | OK | pushes em `main` disparam workflow |
+| Build automatizado a cada commit | OK | [ci.yml](../.github/workflows/ci.yml) em todo push |
+| Build self-testing | OK | `ruff` + `pytest` + JUnit em cada run |
+| Todos veem o resultado | OK | [Actions](https://github.com/souzajv/ponderada-cicd-lab/actions) + badge no README |
+| Build rápido | OK | 22–34s nos runs verdes (var. 08/09) |
+| Ambiente de teste próximo ao dev | Parcial | `ubuntu-latest` + Python 3.11 fixo |
+| Corrigir build quebrado imediatamente | OK | var. 02 → 03: falha corrigida no push seguinte ([27112469375](https://github.com/souzajv/ponderada-cicd-lab/actions/runs/27112469375)) |
+
+### 10.2 Deployment Pipeline — estágios de confiança
+
+O experimento implementa os estágios iniciais do *Deployment Pipeline* (confiança para integrar), sem estágio de release manual:
+
+```mermaid
+flowchart LR
+  commit[Commit push] --> setup[setup ci-mode]
+  setup --> lint[lint estatico]
+  setup --> test[test pytest]
+  lint --> artifact[artefato metrics]
+  test --> artifact
+  artifact --> report[report consolidado]
+  report --> coleta[coleta API CSV]
+```
+
+Cada estágio acrescenta **build confidence**: só após lint+test verdes o artefato `pipeline-metrics-{run_id}` é publicado; o job `report` consolida métricas para análise offline. O pipeline não chega a deploy — escopo adequado para CI acadêmico.
+
+### 10.3 Test Pyramid — estrutura da suíte
+
+| Camada | Quantidade | Tempo típico | Política no CI |
+|---|---|---|---|
+| Unitários rápidos | 22 testes (`-m "not slow"`) | ~6–10s no job test | **Sempre** no caminho crítico |
+| Teste lento (`@pytest.mark.slow`) | 1 teste (`test_slow_hover_analysis`) | +3s sleep + overhead | Só na var. 05 (`run_slow_tests=true`) |
+| E2E / UI | 0 | — | Fora do escopo (mini-analyzer) |
+
+A var. **04** (mais testes na base) aumentou `test_count` com impacto quase linear (+3s). A var. **05** (topo lento) elevou `workflow_duration` para **27s** — confirma Fowler: poucos testes lentos no topo, muitos rápidos na base. O marker `slow` em [`pyproject.toml`](../pyproject.toml) e o filtro `-m "not slow"` em [`ci.yml`](../.github/workflows/ci.yml) materializam a pirâmide no pipeline.
+
+### 10.4 Métricas úteis vs vanity
+
+Fowler alerta que métricas mal usadas viram *vanity metrics* ([Cannot Measure Productivity](https://martinfowler.com/bliki/CannotMeasureProductivity.html)). Neste experimento:
+
+- **Úteis:** `workflow_duration` por modo, `job_duration` por step, taxa de falha por tipo — orientam decisão (paralelo no g01, ordem lint→test).
+- **Inconclusivas (não punir o time):** média global de cache pip diluída por variância de runner; usar pares controlados (var. 06 vs 07) em vez de média agregada.
+
+As limitações da §4.7 reforçam postura madura: medir para **aprender e ajustar o pipeline**, não para ranking individual.
+
+### 10.5 Síntese — critérios de excelência
+
+- **Teoria:** CI (7 práticas), Deployment Pipeline (estágios), Test Pyramid (marker `slow`) — todos com referência Fowler.
+- **Dados:** 19 runs, 525 steps, 7 gráficos, hipóteses confirmadas/rejeitadas com run_id.
+- **Decisão transferível:** lint+test paralelo + SLO p95 < 40s + slow fora do caminho crítico → aplicável ao GitLab do g01.
+
+## 11. Reprodução
 
 Passo a passo em [`reproducao.md`](./reproducao.md).
+
+## 12. Referências
+
+- Fowler, M. — [Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html)
+- Fowler, M. — [Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html)
+- Fowler, M. — [Deployment Pipeline](https://martinfowler.com/bliki/DeploymentPipeline.html)
+- Fowler, M. — [Cannot Measure Productivity](https://martinfowler.com/bliki/CannotMeasureProductivity.html)
+- Humble, J. & Farley, D. — *Continuous Delivery* (estágios de pipeline e confiança acumulada por estágio)

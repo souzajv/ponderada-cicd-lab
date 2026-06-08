@@ -187,6 +187,8 @@ O enunciado aceita **prints ou links**. Esta entrega inclui **ambos**:
 | [relatorio-tecnico.md](entregaveis/relatorio-tecnico.md) | Análise completa: 8 perguntas, DORA, inesperados, hipóteses, limitações |
 | [ENTREGA.md](entregaveis/ENTREGA.md) | Folha resumo para correção rápida |
 
+Relatório inclui fundamentação **Martin Fowler** (CI, Deployment Pipeline, Test Pyramid) mapeada às evidências do experimento — ver [§10 do relatório](entregaveis/relatorio-tecnico.md#10-fundamentação-teórica-martin-fowler).
+
 ---
 
 ## Como reproduzir
