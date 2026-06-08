@@ -1,8 +1,8 @@
 {
-  "execution_mode": "parallel",
+  "execution_mode": "sequential",
   "pip_cache": true,
   "run_slow_tests": false,
   "force_test_failure": false,
   "force_lint_failure": false,
-  "variation_label": "08-paralelo"
+  "variation_label": "09-sequencial"
 }
